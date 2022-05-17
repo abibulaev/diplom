@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block link%}
+<link rel="stylesheet" href="static/css/about.css">
+{% endblock%}
+{% block title %}
+Работы
+{% endblock %}
+
+
+{% block body %}
+<div class="tab_table">
+<button class="tablinkTable" onclick="openTable(event,'tabl_dess')">Диссертации</button>
+<button class="tablinkTable" onclick="openTable(event,'tabl_mon')">Монографии</button>
+<button class="tablinkTable" onclick="openTable(event,'tabl_slov')">Словари,справочные издания</button>
+</div>
+<form  method="post">
+    
+  
+  <div class="tabprepodtabl" id="tabl_dess">
+    <h2>Дисертации</h2>
+    <table>
+    <tr >
+        <th>Тема</th>
+        <th>Тип диссертации</th>
+        <th>Специальность</th>
+        <th>Научный руководитель</th>
+        <th>Дата публикации</th>
+        <th>Город</th>
+        <th>Загрузить</th>
+        
+    </tr>
+    
+    {%for i in name %}
+    <tr class="tabprep">
+        <td  ><p ><a class="tad_name" href="/index?url={{i.url}}&filename={{i.filname}}">{{i.tema}}</a></p>
+          <textarea name="pizrbpot" hidden>{{i.url}}/{{i.filname}}</textarea></td>
+          <td><p>{{i.type_dess}}</p></td>
+          <td>{{i.special}}</td>
+        <td>{{i.nauch_ruk}}</td>
+        <td>{{i.data}}</td>
+        <td>{{i.city}}</td>
+        
+        <td><input type="submit" value="Скачать"></td>
+     
+        
+    </tr>
+    {% endfor %}
+  
+  
+  </table></div>
+
+
+  <div class="tabprepodtabl" id="tabl_mon">
+   <h2>Монографии</h2>
+    <table>
+    <tr >
+        <th>Тема</th>
+        <th>Издательство</th>
+        <th>Количество страниц</th>
+        <th>Cтраницы написанные преподавателем</th>
+        <th>Соавтор</th>
+        <th>ISBN</th>
+        <th>Дата публикации</th>
+        <th>Город</th>
+        <th>Загрузить</th>
+        
+    </tr>
+    
+    {%for i in nameb %}
+    <tr class="tabprep">
+        <td  ><p ><a class="tad_name" href="/index?url={{i.url}}&filename={{i.filename}}">{{i.monname}}</a></p>
+          <textarea name="pizrbpot" hidden>{{i.url}}/{{i.filename}}</textarea></td>
+          <td><p>{{i.izpat}}</p></td>
+          <td>{{i.kol_stran}}</td>
+        <td>{{i.stranic}}</td>
+        <td>{{i.soavtor}}</td>
+        <td>{{i.isbn}}</td>
+        <td>{{i.data}}</td>
+        <td>{{i.city}}</td>
+        
+       
+        
+        <td><input type="submit" value="Скачать"></td>
+     
+        
+    </tr>
+    {% endfor %}
+  </table></div>
+  <div class="tabprepodtabl" id="tabl_slov">
+    <h2>Словари и справочные издания</h2>
+    <table>
+    <tr >
+        <th>Наименование</th>
+        <th>Издательство</th>
+        <th>Количество страниц</th>
+        <th>Соавтор</th>
+        <th>ISBN</th>
+        <th>Дата публикации</th>
+        <th>Город</th>
+        <th>Загрузить</th>
+        
+    </tr>
+    
+    {%for i in namec %}
+    <tr class="tabprep">
+        <td  ><p ><a class="tad_name" href="/index?url={{i.url}}&filename={{i.filenames}}">{{i.monnames}}</a></p>
+          <textarea name="pizrbpot" hidden>{{i.url}}/{{i.filenames}}</textarea></td>
+          <td><p>{{i.izpats}}</p></td>
+          <td>{{i.kol_strans}}</td>
+        <td>{{i.soavtors}}</td>
+        <td>{{i.isbns}}</td>
+        <td>{{i.datas}}</td>
+        <td>{{i.citys}}</td>
+        
+        <td><input type="submit" value="Скачать"></td>
+     
+        
+    </tr>
+    {% endfor %}
+  </table></div>
+</form>
+{% endblock %}
+<script>
+
+  </script>
+

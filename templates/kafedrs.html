@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block link%}
+<link rel="stylesheet" href="static/css/about.css">
+{% endblock%}
+{% block title %}
+Преподаватели
+{% endblock %}
+
+
+{% block body %}
+
+<div class="tabprepod">
+   
+   
+<h2>Наименование кафедры</h2>
+    
+<ul class="border">
+{% for i in items %}
+        <li><a class=" spissok"href="/about?name={{i}}">{{ i }}</a></li>
+      
+        
+        
+    
+{% endfor %}
+    
+</table></div>
+
+
+
+{% endblock %}

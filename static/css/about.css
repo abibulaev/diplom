@@ -1,0 +1,188 @@
+.tabprepod{
+    font-size: 16px;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    
+}
+.tabprepod table {
+    
+    font-size: 14px;
+    background: white;
+    max-width: 70%;
+    width: 70%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  .tabprepod th {
+    font-weight: normal;
+    color: #039;
+    border-bottom: 2px solid #6678b1;
+    padding: 10px 8px;
+  }
+  .tad_name{
+    text-decoration: none;
+  }
+  .tabprepod td {
+    color: #669;
+    padding: 9px 8px;
+    transition: .3s linear;
+    border-bottom: 1px solid #ccc;
+    
+  }
+ .tabprepod tr:hover td {
+    color: #6699ff;
+  }
+  td{
+    cursor: pointer;
+  }
+  .border {
+    list-style: none;
+    padding: 0;
+    }
+    .spissok{
+text-decoration: none;
+    }
+    .border li {
+      
+  
+    padding: 7px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border-left: 10px solid #52b3da; 
+    box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+         -2px -2px 5px 0 rgba(0,0,0,.1),
+        2px 2px 5px 0 rgba(0,0,0,.1),
+        -2px 2px 5px 0 rgba(0,0,0,.1);
+    font-size: 20px;
+    letter-spacing: 2px;
+    transition: 0.3s all linear;
+    }
+  
+    .border li:hover {border-left: 10px solid transparent;}
+    
+    .tabprepod h2{
+      padding: 7px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border-left: 10px solid #52b3da; 
+    box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+         -2px -2px 5px 0 rgba(0,0,0,.1),
+        2px 2px 5px 0 rgba(0,0,0,.1),
+        -2px 2px 5px 0 rgba(0,0,0,.1);
+    font-size: 22px;
+    letter-spacing: 2px;
+    transition: 0.3s all linear;
+    }
+
+    .tabprepodtabl #tabl_dess{
+     display: block;
+      font-size: 16px;
+      text-align: center;
+      margin-left: 25%;
+      margin-right: 25%;
+      
+  }
+  .tabprepodtabl #tabl_mon #tabl_slov{
+    display: none; 
+    font-size: 16px;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    
+}
+
+  .tabprepodtabl table {
+      
+      font-size: 14px;
+      background: white;
+      max-width: 70%;
+      margin-left: 16%;
+      width: 70%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .tabprepodtabl th {
+      font-weight: normal;
+      color: #039;
+      border-bottom: 2px solid #6678b1;
+      padding: 10px 8px;
+    }
+    .tad_name{
+      text-decoration: none;
+    }
+    .tabprepodtabl td {
+      color: #669;
+      padding: 9px 8px;
+      transition: .3s linear;
+      border-bottom: 1px solid #ccc;
+      
+    }
+   .tabprepodtabl tr:hover td {
+      color: #6699ff;
+    }
+    td{
+      cursor: pointer;
+    }
+    .border {
+      list-style: none;
+      padding: 0;
+      }
+      .spissok{
+  text-decoration: none;
+      }
+      .border li {
+        
+    
+      padding: 7px 20px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border-left: 10px solid #52b3da; 
+      box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+           -2px -2px 5px 0 rgba(0,0,0,.1),
+          2px 2px 5px 0 rgba(0,0,0,.1),
+          -2px 2px 5px 0 rgba(0,0,0,.1);
+      font-size: 20px;
+      letter-spacing: 2px;
+      transition: 0.3s all linear;
+      }
+    
+      .border li:hover {border-left: 10px solid transparent;}
+      
+      .tabprepodtabl h2{
+        padding: 7px 20px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border-left: 10px solid #52b3da; 
+      box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+           -2px -2px 5px 0 rgba(0,0,0,.1),
+          2px 2px 5px 0 rgba(0,0,0,.1),
+          -2px 2px 5px 0 rgba(0,0,0,.1);
+      font-size: 22px;
+      letter-spacing: 2px;
+      transition: 0.3s all linear;
+      }
+
+
+      .tab_table {
+        overflow: hidden;
+        border: 1px solid #52b3da;
+        background-color:  #d7f4ff;
+    }
+    .tab_table  button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+    }
+    .tab_table  button:hover {
+        background-color: #8dd5f1;
+    }
+    .tab_table  button.active {
+        background-color: #52b3da;
+      color: #fff;
+    }
+  

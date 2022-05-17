@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block link%}
+<link rel="stylesheet" href="static/css/profile.css">
+{% endblock%}
+
+{% block title %}
+Личный кабинет
+{% endblock %}
+
+
+{% block body %}
+
+
+<div class="user-profile">
+  <img src="../{{foto_url}}/{{filename}}" width="350px" height="430px">
+    <div class="about-profile">
+
+      <label for="user_neme"><b>ФИО</b></label>
+      <h1 name="user_neme">{{username}}</h1>
+
+      <label for="data"><b>Дата рождения</b></label>
+      <h4 name="data">{{dataroj}}</h4>
+
+      <label for="status"><b>Должность</b></label>
+      <h4 name="status">{{status}}</h4>
+
+      <label for="work"><b>Место работы</b></label>
+      <h4 name="work">{{work}}</h4>
+
+      <label for="tef"><b>Номер телефона</b></label>
+      <h4 name="tef">{{tef}}</h4> 
+      
+      <label for="email"><b>Почта</b></label>
+      <h5 name="email">{{email}}</h5>
+      
+      <h6>редактировать </h6></div>
+
+</div>
+<hr>
+
+<form action="" method="post">
+    
+
+
+
+<div class="tabprepod">
+  <table>
+  <tr >
+      <th>Наименование документа</th>
+      <th>Тип диссертации</th>
+      <th>Специальность</th>
+      <th>Научный руководитель</th>
+      <th>Дата публикации</th>
+      <th>Город</th>
+      <th>Загрузить</th>
+      
+  </tr>
+  
+  {%for i in name %}
+  <tr class="tabprep">
+      <td  ><p ><a class="tad_name" href="/index?url={{i.url}}&filename={{i.filname}}">{{i.tema}}</a></p>
+        <textarea name="pizrbpot" hidden>{{i.url}}/{{i.filname}}</textarea></td>
+        <td><p>{{i.type_dess}}</p></td>
+        <td>{{i.special}}</td>
+      <td>{{i.nauch_ruk}}</td>
+      <td>{{i.data}}</td>
+      <td>{{i.city}}</td>
+      
+      <td><input type="submit" value="Скачать"></td>
+   
+      
+  </tr>
+  {% endfor %}
+</table></div>
+</form>
+
+
+
+
+{% endblock %}

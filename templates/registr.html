@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/registr.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Регистрация</title>
+</head>
+<body>
+  <form method="post" enctype="multipart/form-data" >
+    <div class="container">
+    <h1>Регистрация</h1>
+    <hr>
+    
+    <label for="user_neme"><b>ФИО</b></label>
+    <input type="text" placeholder="ФИО" name="user_name" required>
+
+    <label for="data"><b>Дата рождения</b></label>
+    <input type="date" placeholder="Дата рождения" name="data" required>
+
+
+    <label for="work"><b>Место работы</b></label>
+    <input type="text" placeholder="Место работы" name="work" required>
+
+    <label for="fakultet"><b>Факультет</b></label>
+    <input type="text" placeholder="Факультет" name="fakultet" required>
+    
+    <label for="kafedra"><b>Кафедра</b></label>
+    <input type="text" placeholder="Кафедра" name="kafedra" required>
+
+    <label for="position"><b>Должность</b></label>
+    <input type="text" placeholder="Должность" name="position" required>
+
+    <label for="tel"><b>Номер телефона</b></label>
+    <input type="text" placeholder="Номер телефона" name="tel" required>
+
+    
+    
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Пароль</b></label>
+    <input type="password" placeholder="Введите пароль" name="psw" required>
+
+    <label for="file"><b>Фото профиля</b></label>
+    <input type="file"  name="file"><br>
+    
+
+    
+
+    
+    <button type="submit" class="registerbtn">Зарегистрироваться</button>
+  </div>
+
+  <div class="container signin">
+    <p>У вас есть аккаунт? <a href="/reg">Log in</a>.</p>
+  </div></form>
+    
+    
+</body>
+</html>

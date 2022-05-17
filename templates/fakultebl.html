@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block link%}
+<link rel="stylesheet" href="static/css/about.css">
+{% endblock%}
+{% block title %}
+Преподаватели
+{% endblock %}
+
+
+{% block body %}
+
+<div class="tabprepod">
+   
+   
+    <h2>Наименование факультета</h2> 
+   
+    <ul class="border">
+   
+<li><a class=" spissok"href="/kafedrs?name='Факультет экономики, менеджмента и информационных технологий'">Факультет экономики, менеджмента и информационных технологий</a></li>
+<li><a class=" spissok"href="/kafedrs?name='Факультет психологии и педагогического образования'">Факультет психологии и педагогического образования</a></li>
+<li><a class=" spissok"href="/kafedrs?name='Факультет истории, искусств и крымскотатарского языка и литературы'">Факультет истории, искусств и крымскотатарского языка и литературы</a></li>
+<li><a class=" spissok"href="/kafedrs?name='Филологический факультет'">Филологический факультет</a></li>
+<li><a class=" spissok"href="/kafedrs?name='Инженерно-технологический факультет'">Инженерно-технологический факультет</a></li>
+</ul>
+   
+</div>
+
+
+{% endblock %}

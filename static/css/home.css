@@ -1,0 +1,34 @@
+
+.body{
+    
+    font-size: size 16px;
+    
+background-color: rgb(255, 255, 255);
+}
+
+.user-profile{
+  background-color: #464866; ;
+  display: flex;
+  padding: 6% 10%;
+}
+
+.about-profile{
+padding: 1% 4%;
+
+
+}
+.about-profile label{
+  font-size: small;
+  color: rgb(94, 94, 94);
+}
+.about-profile td,th{
+
+  color: rgb(101, 211, 255);
+}
+.skrol{
+  overflow: scroll;
+}
+.id_comm{
+  display: none;
+  height: 100px;
+}

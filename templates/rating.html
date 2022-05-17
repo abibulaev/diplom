@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block link%}
+<link rel="stylesheet" href="static/css/about.css">
+<link rel="stylesheet" href="static/css/rating.css">
+{% endblock%}
+{% block title %}
+Преподаватели
+{% endblock %}
+
+
+{% block body %}
+
+<div class="tabprepod">
+   
+   
+    <table>
+        <thead> <tr >
+            <th> ФИО</th>
+            <th>Место работы</th>
+            <th>Должность</th>
+            <th>Кафедра</th>
+            <th>Рейтинг</th>
+        </tr></thead>
+   
+    {% for item in items %}
+    <tbody>
+        <tr class="tabprep">
+        <td  ><a href="/rabots?name={{ item.name }}">{{ item.name }}</a></td>
+        <td>{{ item.work }}</td>
+        <td>{{ item.status }}</td>
+        <td>{{ item.kafedra }}</td>
+        <td  >{{ item.user_rating}}</td>
+        
+    </tr>
+    {% endfor %}</tbody>
+    
+</table></div>
+
+
+{% endblock %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+const getSort = ({ target }) => {
+    const order = (target.dataset.order = -(target.dataset.order || -1));
+    const index = [...target.parentNode.cells].indexOf(target);
+    const collator = new Intl.Collator(['en', 'ru'], { numeric: true });
+    const comparator = (index, order) => (a, b) => order * collator.compare(
+        a.children[index].innerHTML,
+        b.children[index].innerHTML
+    );
+    
+    for(const tBody of target.closest('table').tBodies)
+        tBody.append(...[...tBody.rows].sort(comparator(index, order)));
+
+    for(const cell of target.parentNode.cells)
+        cell.classList.toggle('sorted', cell === target);
+};
+
+document.querySelectorAll('.table_sort thead').forEach(tableTH => tableTH.addEventListener('click', () => getSort(event)));
+
+});
+
+</script>

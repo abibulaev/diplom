@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% block link%}
+<link rel="stylesheet" href="static/css/adddoc.css">
+{% endblock%}
+
+{% block title %}
+Добавление документа
+{% endblock %}
+
+
+{% block body %}
+<div class="border">
+    <h2 class="glavtext">Добаление научной работы</h1>
+    <h2 >Научно-исследовательская деятельность</h1>
+    <div class="conteiner">
+   
+        <h1><a class="zas" href="#des">Защита диссертации</a></h1>
+        
+    <div id="des" > 
+        <form  method="post" enctype="multipart/form-data"> 
+            <input class="skritpole" name="skritpole" value="Диссертация" >
+           
+
+            <label class="opisinput" for="typedes">Выберите</label><br>
+            <input class="inputnamedok" name="typedes" type="text" list="typedess">
+            
+            <datalist id="typedess">
+                <option>Докторская</option>
+                <option>Кандидатская</option>
+            </datalist>
+            <label class="opisinput" for="special">Специальнось</label><br>
+            <input class="inputnamedok" name="special" type="text" list="{{spis}}">
+            
+            <datalist id="listspecial">
+                <option >Экономика </option>
+                <option >Менеджмент</option>
+                <option >Прикладная информатика</option>
+                <option >Педагогическое образование</option>
+                <option >Образование и педагогические науки</option>
+            </datalist>
+            <datalist id="listspecial2">
+                <option >Педагогическое образование</option>
+                <option >Психология</option>
+            </datalist>
+            <datalist id="listspecial3">
+                <option >Журналистика. Программа широкого профиля</option>
+                <option >Педагогическое образование. Профиль «Музыкальное образование»</option>
+                <option >История. Программа широкого профиля"</option>
+                <option >Вокальное искусство. Профиль «Академическое пение»</option>
+               
+            </datalist>
+            <datalist id="listspecial4">
+                <option >Преподавание филологических дисциплин (английский язык и литература, русский язык и литература)</option>
+                <option >Преподавание филологических дисциплин (английский язык и литература, украинский язык и литература)</option>
+                <option >Зарубежная филология (английский язык и литература, немецкий язык и литература)</option>
+                <option >Зарубежная филология (английский язык и литература, турецкий язык и литература)</option>
+            </datalist>
+            <datalist id="listspecial5">
+                <option >Машиностроение</option>
+                <option >Конструкторско-технологическое обеспечение машиностроительных производств</option>
+                <option >Техносферная безопасность</option>
+                <option >Эксплуатация транспортно-технологических машин и комплексов</option>
+                <option >Профессиональное обучение</option>
+            </datalist>
+            <label class="opisinput" for="tema">Тема</label><br>
+            <input class="inputnamedok" type="text" name="tema">
+            
+            <label class="opisinput" for="nauchruk">Научный руководитель</label><br>
+            <input class="inputnamedok" type="text" name ="nauchruk" >
+            
+            <label class="opisinput" for="gorod">Город</label><br>
+            <input class="inputnamedok" type="text"name= "gorod">
+           
+            <label class="opisinput" for="data">Дата</label><br>
+            <input class="inputnamedok" name="data" type="datetime-local" id="floatingInput" ><br>
+         
+            <input class="inputnamedok" type="file"  name="file"><br>
+
+            
+            <button type="submit" class="dobdocbtn">Загрузить </button>
+        </form>  
+       
+    </div>
+
+
+
+
+    <h1><a class="zas" href="#dess">Монография</a></h1>
+    <div id="dess" > 
+        <form  method="post" enctype="multipart/form-data"> 
+
+            <input class="skritpole" name="skritpole" value="Монография" >
+
+            <label class="opisinput" for="tema">Название</label><br>
+            <input class="inputnamedok" type="text" name="tema">
+            
+            <label class="opisinput" for="nauchruk">Соавторы</label><br>
+            <input class="inputnamedok" type="text" name ="nauchruk">
+            
+            <label class="opisinput" for="gorod">Город</label><br>
+            <input class="inputnamedok" type="text"name= "gorod">
+
+            <label class="opisinput" for="izdat">Издательство</label><br>
+            <input class="inputnamedok" type="text"name= "izdat">
+           
+
+            <label class="opisinput" for="kolstran">Количество страниц</label><br>
+            <input class="inputnamedok" type="text"name= "kolstran">
+            
+
+            <label class="opisinput" for="stran">Страницы</label><br>
+            <input class="inputnamedok" type="text"name= "stran">
+
+
+            <label class="opisinput" for="ISBN">ISBN</label><br>
+            <input class="inputnamedok" type="text"name= "ISBN">
+           
+            <label class="opisinput" for="data">Дата</label><br>
+            <input class="inputnamedok" name="data" type="datetime-local" id="floatingInput" ><br>
+         
+            <input class="inputnamedok" type="file"  name="file"><br>
+
+            
+            <button type="submit" class="dobdocbtn">Загрузить </button>
+        </form>  
+       
+    </div>
+
+
+
+    <h1><a class="zas" href="#desss">Словари,справочные издания</a></h1>
+    <div id="desss" > 
+        <form  method="post" enctype="multipart/form-data"> 
+
+            <input class="skritpole" name="skritpole" value="Словарь" >
+
+            <label class="opisinput" for="tema">Название</label><br>
+            <input class="inputnamedok" type="text" name="tema">
+            
+            <label class="opisinput" for="nauchruk">Соавторы</label><br>
+            <input class="inputnamedok" type="text" name ="nauchruk">
+            
+            <label class="opisinput" for="gorod">Город</label><br>
+            <input class="inputnamedok" type="text"name= "gorod">
+
+            <label class="opisinput" for="izdat">Издательство</label><br>
+            <input class="inputnamedok" type="text"name= "izdat">
+           
+
+            <label class="opisinput" for="kolstran">Количество страниц</label><br>
+            <input class="inputnamedok" type="text"name= "kolstran">
+            
+
+            <label class="opisinput" for="ISBN">ISBN</label><br>
+            <input class="inputnamedok" type="text"name= "ISBN">
+           
+            <label class="opisinput" for="data">Дата</label><br>
+            <input class="inputnamedok" name="data" type="datetime-local" id="floatingInput" ><br>
+         
+            <input class="inputnamedok" type="file"  name="file"><br>
+
+            
+            <button type="submit" class="dobdocbtn">Загрузить </button>
+        
+        </form>  
+       
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<h2> Научные публикации</h1>
+
+<div class="conteiner">
+    
+ 
+    <h1><a class="zas" href="#dessss">Научные публикации</a></h1>
+    
+    <div id="dessss" > 
+        <input class="inputnamedok" name="kandid" type="text"><br>
+        <label class="opisinput" for="kandid">Название;Соавторы(должность ФИО);Название издания и номер;Издательство;Город;Количество страниц;Дата(00.00.00)</label><br>
+        <input type="file" accept=".pdf"><br>
+        <button type="submit" class="dobdocbtn">Загрузить </button>
+        </div>
+    
+    </div>
+</div>
+
+    
+   
+    
+   
+    
+
+   
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block link%}
+<link rel="stylesheet" href="static/css/home.css">
+{% endblock%}
+
+{% block title %}
+главная страница
+{% endblock %}
+
+
+{% block body %}
+
+<div class="conteiner">
+  <iframe src="file:///C:/Users/abibu/Desktop/%D0%9D%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%BF%D0%B0%D0%BF%D0%BA%D0%B0/site/static/09.03.03Ametov_A.F.Razrabotka_mobilynogo_prilojeniyaSimferopol.pdf" width="800" height="1600"></iframe>
+  <object data="{{url_for('static',filename='09.03.03Ametov_A.F.Razrabotka_mobilynogo_prilojeniyaSimferopol.pdf')}}" type="application/pdf"></object>
+</div>
+
+{% endblock %}

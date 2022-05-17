@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block link%}
+<link rel="stylesheet" href="static/css/about.css">
+{% endblock%}
+{% block title %}
+Преподаватели
+{% endblock %}
+
+
+{% block body %}
+
+<div class="tabprepod">
+   
+   
+    <table>
+    <tr >
+        <th> ФИО</th>
+        <th>Место работы</th>
+        <th>Должность</th>
+        <th>Номер телефона</th>
+        <th>Почта</th>
+    </tr>
+    {% for item in items %}
+    <tr class="tabprep">
+        <td  ><a href="/rabots?name={{ item.name }}">{{ item.name }}</a></td>
+        <td>{{ item.work }}</td>
+        <td>{{ item.status }}</td>
+        <td>{{ item.telephone }}</td>
+        <td  >{{ item.email}}</td>
+        
+    </tr>
+    {% endfor %}
+</table></div>
+
+
+{% endblock %}

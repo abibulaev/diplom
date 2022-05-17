@@ -1,0 +1,97 @@
+/*header------------*/
+*{
+    margin: 0 ;
+    padding: 0;
+}
+
+.navigation{
+    display:flex;
+    list-style-type: none;
+padding: 10px 18px;
+
+}
+
+.exit-btn{
+    color: white;
+    font-size: 16px;
+    background: #124c6e;
+   margin-left: auto;
+}
+.menu-item{
+    color: white;
+    font-size: 16px;
+    
+    padding: 10px 18px;
+  text-decoration: none;
+}
+/*body------------*/
+.body{
+    
+    font-size: size 16px;
+    
+background-color: rgb(255, 255, 255);
+}
+
+.user-profile{
+  background-color: #034569; ;
+  display: flex;
+  padding: 6% 10%;
+}
+
+.about-profile{
+padding: 1% 4%;
+
+
+}
+.about-profile label{
+  font-size: small;
+  color:#3f768d ;
+}
+.about-profile h1,h4,h5{
+
+  color:  #559BBA;
+}
+.about-profile h6{
+
+  color:  #464866;
+}
+
+
+
+.tabprepod{
+  font-size: 16px;
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+
+}
+.tad_name{
+  text-decoration: none;
+}
+.tabprepod table {
+  
+  font-size: 14px;
+  background: white;
+  max-width: 70%;
+  width: 70%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.tabprepod th {
+  font-weight: normal;
+  color: #039;
+  border-bottom: 2px solid #6678b1;
+  padding: 10px 8px;
+}
+.tabprepod td {
+  color: #669;
+  padding: 9px 8px;
+  transition: .3s linear;
+  border-bottom: 1px solid #ccc;
+}
+.tabprepod tr:hover td {
+  color: #6699ff;
+}
+td{
+  cursor: pointer;
+}
