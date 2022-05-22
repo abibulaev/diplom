@@ -4,17 +4,25 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
+
+html {
+    height: 100vh;
+}
+
 .header{
     width:auto;
-margin: auto;
-background:#0C5DA5 ;
+    margin: auto;
+    background:#0C5DA5;
+}
 
+body {
+    height: 80%;
+    background-color: rgb(241, 241, 241);
 }
 
 ul, li{
     display: block;
 }
-
 
 .menu{
     display: flex;
@@ -23,214 +31,236 @@ ul, li{
     margin-bottom: 10px;
 }
 
+.nav a {
+    color: #dadada;
+}
+
 .menu li a{
     text-decoration: none;
     font-size: 17px;
-    color: #64AAD0;
 }
 
 .menu li{
     list-style-type: none;
     margin-right: 40px;
 }
+
 .user-profile{
     background-color: #034569;
-
 }
+
 .tel{
     font-size: 17px;
     text-decoration: none;
     margin-left: auto;
     margin-right: 100px;
-    color: #458ebe;
 }
 
 .nav{
-    position:relative;
-    min-width: 99%;
     display: flex;
     align-items: center;
     z-index: 1000;
     background-color: #0C5DA5;
     padding: 15px;
 }
-/*лента*/
-.lenta #lintadess{  display: block;
-    background: #52b3da;
 
-margin-left: 100px;
-margin-right: 100px;
-padding-top: 10px;}
-.lenta #lentamon #entaslov{
-    display: none;
-    background: #52b3da;
-
-margin-left: 100px;
-margin-right: 100px;
-padding-top: 10px;
+.container {
+    padding: 50px;
+    height: 100%;
 }
 
-.post{
+.main-page{
     display: flex;
-    color:  rgba(255, 255, 255, 0.904);
-    border-radius: 10px;
+    justify-content: center;
+}
 
-    margin-bottom: 5px;
-    margin-left: 20px;
-    margin-right: 20px;
+.left-side-nav {
+    width: 315px;
+}
+
+.side-nav {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+
+.main-content {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.block-tile {
+    max-width: 500px;
+    background-color: #fff;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+
+.tile-content {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.block-tile a{
     text-decoration: none;
-    background-color:#0C5DA5 ;
-}
-.post-text{
-    margin-left: 5px;
-}
-.lenta img{
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-bottom: 5px;
-    width :50px;
-    height :75px;
-    border-radius: 10px;
-
+    color: #000;
 }
 
-.lenta iframe{
-
-   width :100%;
-    height :900px;
-
+.block-tile a:hover{
+    text-decoration: underline;
 }
-.postos{
+
+.tile-title {
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.author {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.bottom-tile {
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    background-color: rgb(224, 224, 224);
+    border-top: 0.5px solid rgb(121, 121, 121);
+}
+
+.bottom-tile a{
+    color: rgb(0, 0, 0);
+}
+
+.annotation {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.faculty {
+    font-size: 15px;
+}
+
+.link-view {
+    display: flex;
+    align-items: center;
+}
+
+.icon-view {
+    margin-right: 10px;
+}
+
+.read {
+    margin-left: auto;
+}
+
+.side-title {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.side-menu a{
+    text-decoration: none;
+    color: #000;
+}
+
+.side-menu a:hover{
+    text-decoration: underline;
+}
+
+.side-menu {
+    height: 400px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.side-menu li{
+    margin-top: 25px;
+}
+
+
+.side-lenta {
+    text-transform: uppercase;
+    font-weight: 300px;
     
-    padding-top: 10px;
-       margin-bottom: 5px;
-       margin-left: 20px;
-       margin-right: 20px;
+    margin-bottom: 15px;
+    list-style: none;
+    padding: 0;
 }
-.opis {
-    font-size: 10pt;
-}
-.postt{
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-
-  margin: 10px;
-    background-color: aliceblue;
-    border-radius: 10px;
-}
-.tab {
-    overflow: hidden;
-    border: 1px solid #52b3da;
-    background-color:  #d7f4ff;
-}
-.tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-}
-.tab button:hover {
-    background-color: #8dd5f1;
-}
-.tab button.active {
-    background-color: #52b3da;
-  color: #fff;
-}
-.tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #52b3da;
-    border-top: none;
-}
-.tad {
-    overflow: hidden;
-    border: 1px solid #52b3da;
-    background-color:  #d7f4ff;
-}
-.tad button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-}
-.tad button:hover {
-    background-color: #8dd5f1;
-}
-.tad button.active {
-    background-color: #52b3da;
-  color: #fff;
-}
-.tadcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #52b3da;
-    border-top: none;
-}
-.tam {
-    overflow: hidden;
-    border: 1px solid #52b3da;
-    background-color:  #d7f4ff;
-}
-.tam button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-}
-.tam button:hover {
-    background-color: #8dd5f1;
-}
-.tam button.active {
-    background-color: #52b3da;
-  color: #fff;
-}
-.moncontent {
-    padding: 6px 12px;
-    border: 1px solid #52b3da;
-    border-top: none;
-}
-footer {
-   margin-bottom: 0px; 
-  }
-  .clear {
-    clear: both; /* класс для прерывания обтекания */
-   }
-  .topbutton {
-    width:100px;
-    border:2px solid #ccc;
-    background:#f7f7f7;
-    text-align:center;
-    padding:10px;
-    position:fixed;
-    bottom:50px;
-    right:50px;
-    cursor:pointer;
-    color:#333;
-    font-family:verdana;
-    font-size:12px;
+.side-lenta li{margin-top: 15px;
+    
+    border-bottom: 1px solid grey;
+   
+    box-shadow: 0 5px 5px 0 rgba(0,0,0, .2);
+    margin-bottom: 5px;
+    background-color: rgb(224, 224, 224);
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -khtml-border-radius: 5px;
+    padding: 10px 20px 10px 20px;
+    color: #000;
+    text-decoration: none;
+    text-transform: none;
+   
+   
     }
+    .first li:last-child {border-bottom: none;}    
 
-.stena{
-   display: flex; }
-.lenti{
+
+
+
+.side-lenta a {
+    
+    
+}
+.side-lenta li:hover {
+    background-color: rgb(194, 192, 214);
+}
+
+.tablinkslenta{
     width: 100%;
 }
-.kol_public{
-    background:#8dd5f1 ;
-    margin-left: auto;
-    margin-right: 15px;
-}    
+
+.content-title {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.rigth-side-nav {
+    width: 300px;
+}
+
+.user-raiting {
+    display: flex;
+    align-items: center;
+}
+
+.img-raiting-user {
+    width: 50px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.raiting {
+    font-size: 13px;
+}
+
+.user-raiting a:hover{
+    text-decoration: underline;
+}
+
+.link-raiting {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.link-raiting a:hover{
+    text-decoration: underline;
+}

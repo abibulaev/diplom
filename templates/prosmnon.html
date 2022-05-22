@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block link%}
+<link rel="stylesheet" href="static/css/about.css">
+{% endblock%}
+{% block title %}
+Преподаватели
+{% endblock %}
+
+
+{% block body %}
+
+
+<div class="prosmot_file">
+    <div class="block-tile" >
+        <div class="tile-content">
+                <p class="tile-title"> <a href="#">{{id_work.monname}}</a></a></p>
+                <p class="author">Автор: <a href="#">{{id_work.monograf.name}}</a></p>
+            <div class="annotation">
+                 Аннотация: {{id_work.annotation}}
+            </div>
+                <p class="faculty">Тип публикации: <a href="#"  >Монография </a><a href="#"  id="type_desss">{{id_work.type_dess}}</a></a> </p>
+                <p class="faculty">Факультет: <a href="#">{{id_work.monograf.fakultet}}</a></p>
+                <p class="faculty">Кафедра: <a href="#">{{id_work.monograf.kafedra}}</a></p>
+                <p class="faculty">Издательство: <a href="#">{{id_work.izpat}}</a></p>
+                <p class="faculty">Соавтор: <a href="#">{{id_work.soavtor}}</a></p>
+                <p class="faculty">Объем работы: <a href="#">{{id_work.kol_stran}}</a></p>
+                <p class="faculty">Страницы написанные автором:  <a href="#">{{id_work.stranic}}</a></p>
+                <p class="faculty">ISBN:<a href="#">{{id_work.isbn}}</a></p>
+                <p class="faculty">Дата публикации: <a href="#">{{id_work.data}}</a></p>
+                <p class="faculty">Город: <a href="#">{{id_work.city}}</a></p>
+            </div>
+        <div class="bottom-tile-kaf">
+                <p class="view"><a href="#" class="link-view"><img src="../static/img/view.svg" class="icon-view">{{id_work.down}}</a></p>
+                <p class="read"><a href="/download?url={{id_work.url}}&filename={{id_work.filenamem}}">Скачать</a></p>
+        </div>
+    </div>
+    <div class="prosmot_file_iframe">
+        <iframe src="{{id_work.url}}/{{id_work.filenamem}}"> </iframe>
+    </div>
+</div>
+
+
+{% endblock %}

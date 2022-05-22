@@ -1,80 +1,109 @@
 {% extends 'base.html' %}
-{% block link%}
-<link rel="stylesheet" href="static/css/profile.css">
-{% endblock%}
+{% block link%}<link rel="stylesheet" href="static/css/profile.css">{% endblock%}
 
-{% block title %}
-Личный кабинет
-{% endblock %}
+{% block title %}Личный кабинет{% endblock %}
 
 
 {% block body %}
-
-
-<div class="user-profile">
-  <img src="../{{foto_url}}/{{filename}}" width="350px" height="430px">
-    <div class="about-profile">
-
-      <label for="user_neme"><b>ФИО</b></label>
-      <h1 name="user_neme">{{username}}</h1>
-
-      <label for="data"><b>Дата рождения</b></label>
-      <h4 name="data">{{dataroj}}</h4>
-
-      <label for="status"><b>Должность</b></label>
-      <h4 name="status">{{status}}</h4>
-
-      <label for="work"><b>Место работы</b></label>
-      <h4 name="work">{{work}}</h4>
-
-      <label for="tef"><b>Номер телефона</b></label>
-      <h4 name="tef">{{tef}}</h4> 
-      
-      <label for="email"><b>Почта</b></label>
-      <h5 name="email">{{email}}</h5>
-      
-      <h6>редактировать </h6></div>
-
-</div>
-<hr>
-
-<form action="" method="post">
-    
-
-
-
-<div class="tabprepod">
-  <table>
-  <tr >
-      <th>Наименование документа</th>
-      <th>Тип диссертации</th>
-      <th>Специальность</th>
-      <th>Научный руководитель</th>
-      <th>Дата публикации</th>
-      <th>Город</th>
-      <th>Загрузить</th>
-      
-  </tr>
-  
-  {%for i in name %}
-  <tr class="tabprep">
-      <td  ><p ><a class="tad_name" href="/index?url={{i.url}}&filename={{i.filname}}">{{i.tema}}</a></p>
-        <textarea name="pizrbpot" hidden>{{i.url}}/{{i.filname}}</textarea></td>
-        <td><p>{{i.type_dess}}</p></td>
-        <td>{{i.special}}</td>
-      <td>{{i.nauch_ruk}}</td>
-      <td>{{i.data}}</td>
-      <td>{{i.city}}</td>
-      
-      <td><input type="submit" value="Скачать"></td>
-   
-      
-  </tr>
-  {% endfor %}
-</table></div>
-</form>
-
-
-
-
+  <div class="profile-content">
+    <div class="profile">
+      <div class="info">
+        <div class="block-img">
+          <img src="{{ user.foto_url}}/{{user.avatar}}" class="user-photo">
+        </div>
+        <div class="block-info">
+          <p>ФИО: {{user.name}}</p>
+          <p>Должность: {{user.status}}</p>
+          <p>Место работы: {{user.work}}</p>
+          <p>Факультет: {{user.fakultet}}</p>
+          <p>Кафедра: {{user.kafedra}}</p>
+          <p>Телефон: {{user.telephone}}</p>
+          <p>E-mail: {{user.email}}</p>
+          <p>Рейтинг на сайте: {{user.user_rating}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="doc-work">
+      <div class="bttn-block">
+        <a href="#" class="work-bttn" id="dis">Диссертации</a>
+        <a href="#" class="work-bttn" id="mon">Монографии</a>
+        <a href="#" class="work-bttn" id="slov">Словари</a>
+      </div>
+      <table style="margin-top: 20px;" id="list-dis">
+        <tr class="table-title">
+          <td class="table-item-title">Тема работы</td>
+          <td class="table-item-title">Тип работы</td>
+          <td class="table-item-title">Специальность</td>
+          <td class="table-item-title">Научный руководитель</td>
+          <td class="table-item-title">Дата публикации</td>
+          <td class="table-item-title">Город</td>
+          <td class="table-item-title">Действие</td>
+        </tr>
+        {% for i in diss %}
+        <tr>
+          <td class="table-item">{{i.tema}}</td>
+          <td class="table-item">{{i.type_dess}}</td>
+          <td class="table-item">{{i.special}}</td>
+          <td class="table-item">{{i.nauch_ruk}}</td>
+          <td class="table-item">{{i.data}}</td>
+          <td class="table-item">{{i.city}}</td>
+          <td class="table-item"><div><a href="/download?url={{i.url}}&filename={{i.filname}}" class="bttn-download">Скачать</a></div></td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table style="margin-top: 20px; display: none;" id="list-mon">
+        <tr class="table-title">
+          <td class="table-item-title">Тема работы</td>
+          <td class="table-item-title">Тип работы</td>
+          <td class="table-item-title">Соавтор</td>
+          <td class="table-item-title">Город</td>
+          <td class="table-item-title">Издательство</td>
+          <td class="table-item-title">Страниц</td>
+          <td class="table-item-title">ISBN</td>
+          <td class="table-item-title">Дата</td>
+          <td class="table-item-title">Действие</td>
+        </tr>
+        {% for i in mon %}
+        <tr>
+          <td class="table-item">{{i.monname}}</td>
+          <td class="table-item">{{i.type_work}}</td>
+          <td class="table-item">{{i.soavtor}}</td>
+          <td class="table-item">{{i.city}}</td>
+          <td class="table-item">{{i.izpat}}</td>
+          <td class="table-item">{{i.kol_stran}}</td>
+          <td class="table-item">{{i.isbn}}</td>
+          <td class="table-item">{{i.data}}</td>
+          <td class="table-item"><div><a href="/download?url={{i.url}}&filename={{i.filname}}" class="bttn-download">Скачать</a></div></td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table style="margin-top: 20px; display: none;" id="list-slov">
+        <tr class="table-title">
+          <td class="table-item-title">Тема работы</td>
+          <td class="table-item-title">Тип работы</td>
+          <td class="table-item-title">Соавтор</td>
+          <td class="table-item-title">Город</td>
+          <td class="table-item-title">Издательство</td>
+          <td class="table-item-title">Страниц</td>
+          <td class="table-item-title">ISBN</td>
+          <td class="table-item-title">Дата</td>
+          <td class="table-item-title">Действие</td>
+        </tr>
+        {% for i in slov %}
+        <tr>
+          <td class="table-item">{{i.monnames}}</td>
+          <td class="table-item">{{i.type_work}}</td>
+          <td class="table-item">{{i.soavtors}}</td>
+          <td class="table-item">{{i.citys}}</td>
+          <td class="table-item">{{i.izpats}}</td>
+          <td class="table-item">{{i.kol_strans}}</td>
+          <td class="table-item">{{i.isbns}}</td>
+          <td class="table-item">{{i.datas}}</td>
+          <td class="table-item"><div><a href="/download?url={{i.url}}&filename={{i.filname}}" class="bttn-download">Скачать</a></div></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  <script type="text/javascript" src="../static/js/chengeWork.js"></script>
 {% endblock %}

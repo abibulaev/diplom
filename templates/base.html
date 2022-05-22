@@ -2,8 +2,7 @@
 <html lang="en" style="height: 100vh;">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="static/css/home.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,281 +10,161 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&family=Poppins:wght@100;300;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../static/css/main.css">
     {% block link %}
-
-        {% endblock %}
-
-    <title>{% block title %}
-        {% endblock %}</title>
+    {% endblock %}
+    <title>{% block title %}{% endblock %}</title>
 </head>
 <body class="body">
   <header class="header">
-    <div id="nav" class="nav">
-      <ul class="menu">
-          <li>
-              <a href="/">
-                  Главная
+      <div id="nav" class="nav">
+        <ul class="menu">
+            <li>
+                <a href="/">
+                    Главная
+                </a>
+            </li>
+            <li>
+              {%if current_user.id %}
+              <a href="/profile">
+                  Мой кабинет
               </a>
-          </li>
-          <li>
-              <a href="/fakultebl">
-                  Факультеты
+            
+            
+              {% endif%}
+              
+            </li>
+            <li>
+              {%if current_user.id %}
+              <a href="/adddoc">
+                  Добавить работу
               </a>
-          </li>
-          <li>
-            {%if current_user.id %}
-            <a href="/profile">
-                Мой кабинет
-            </a>
-          
-          
-            {% endif%}
-             
-          </li>
-          <li>
-            {%if current_user.id %}
-            <a href="/adddoc">
-                Добавить работу
-            </a>
-          
-          
-            {% endif%}
-             
-          </li>
-      </ul>
-      {%if current_user.id %}
-      <a href="/logout" class="tel">
-        Выход
-    </a>
-      {%else %}
-    <a href="/reg" class="tel">
-        Вход
-    </a>
-      {% endif%}
-     
+            
+            
+              {% endif%}
+              
+            </li>
+        </ul>
+        {%if current_user.id %}
+        <a href="/logout" class="tel">
+          Выход
+      </a>
+        {%else %}
+      <a href="/reg" class="tel">
+          Вход
+      </a>
+        {% endif%}
       
-    </div>
-  </header>
-  {% block body %}
-  
-<div class="tad">
-  <button class="tablinkslenta" onclick="openLenta(event, 'lintadess')" >Диссертации</button>
-  <button class="tablinkslenta" onclick="openLenta(event, 'lentamon')" >Монографии</button>
-  <button class="tablinkslenta" onclick="openLenta(event, 'lentaslov')" >Словари,справочные издания</button>
-</div> 
-<div class="stena">
-  <div class="lenti">
- 
-<div id="lintadess" class="lenta">
-  <h2>Дисертации</h2>
-{%for dat in data %}
-
-<div class="postt">
-<div class="post">
-  <img src="../{{dat[1].foto_url}}/{{dat[1].avatar}}">
-
- <div class="post-text">
-   <h1 name="user_neme" >{{dat[1].name}} </h1>
-
-  
-  <h4 name="status">{{dat[1].status}}</h4>
-
-  
-  <h4 name="work">{{dat[0].data}}</h4>
-</div>
-</div>
-<div class="postos">
-  <div class="tab">
-    <button class="tablinks" onclick="openCity(event, '{{dat[0].data}}')" >Содержимое</button>
-    <button class="tablinks" onclick="openCity(event, '{{dat[0].id}}')" >Подробнее</button>
-    
-  </div> 
-  <div id="{{dat[0].data}}" class="tabcontent">
-    <iframe  src="{{dat[0].url}}/{{dat[0].filname}}"></iframe>
-  </div>
-  
-  <div id="{{dat[0].id}}" class="tabcontent">
-    <div class="opis"> 
-      <h4 name="avtor">Автор : {{dat[1].name}}</h4>
-      <h4 name="work">Специальность : {{dat[0].special}}</h4>
-      <h4 name="tema">Тема : {{dat[0].tema}}</h4>
-      <h4 name="">Научный руководитель : {{dat[0].nauch_ruk}}</h4>
-      <h4>Город : {{dat[0].city}}</h4>
-      
-    </div>
-  </div>
-
-
-
-<hr>
-</div>
-</div>
-
-{%endfor%}
-
-
-
- 
-</div>
-<div id="lentamon" class="lenta" >
-  <h1 >Монографий</h1>
-
-  {%for mono in monogdat %}
-
-<div class="postt">
-<div class="post">
-  <img src="../{{mono[1].foto_url}}/{{mono[1].avatar}}">
-
- <div class="post-text">
-   <h1 name="user_neme" >{{mono[1].name}} </h1>
-
-  
-  <h4 name="status">{{mono[1].status}}</h4>
-
-  
-  <h4 name="work">{{mono[0].data}}</h4>
-</div>
-</div>
-<div class="postos">
-  <div class="tam">
-    <button class="tabmonlinks" onclick="openMon(event, '{{mono[0].data}}')" >Содержимое</button>
-    <button class="tabmonlinks" onclick="openMon(event, '{{mono[0].data}}{{mono[0].id}}')" id="defaultOpen">Подробнее</button>
-  </div> 
-  <div id="{{mono[0].data}}" class="moncontent" style="display: none;">
-    <iframe  src="{{mono[0].url}}/{{mono[0].filenamem}}"></iframe>
-  </div>
-  
-  <div id="{{mono[0].data}}{{mono[0].id}}" class="moncontent" style="display: none;">
-    <div class="opis"> 
-      <h4 name="avtor">Автор : {{mono[1].name}}</h4>
-      <h4 name="work">Специальность : {{mono[0].izpat}}</h4>
-      <h4 name="tema">Тема : {{mono[0].monname}}</h4>
-      <h4 name="">Научный руководитель : {{mono[0].soavtor}}</h4>
-      <h4>Город : {{mono[0].city}}</h4>
-    </div>
-  </div>
-
-
-<hr>
-</div>
-</div>
-
-{%endfor%}
-
-
-</div>
-<div id="lentaslov" class="lenta">
-  <h2>Словари,справочные издания</h2>
-  {%for sdat in slovodat %}
-
-  <div class="postt">
-  <div class="post">
-    <img src="../{{sdat[1].foto_url}}/{{sdat[1].avatar}}">
-  
-   <div class="post-text">
-     <h1 name="user_neme" >{{sdat[1].name}} </h1>
-  
-    
-    <h4 name="status">{{sdat[1].status}}</h4>
-  
-    
-    <h4 name="work">{{sdat[0].data}}</h4>
-  </div>
-  </div>
-  <div class="postos">
-    <div class="tab">
-      <button class="tablinks" onclick="openCity(event, '{{sdat[0].data}}+100')" >Содержимое</button>
-      <button class="tablinks" onclick="openCity(event, '{{sdat[0].id}}+100')" id="defaultOpen">Подробнее</button>
-    </div> 
-    <div id="{{sdat[0].data}}+100" class="tabcontent">
-      <iframe  src="{{sdat[0].url}}/{{sdat[0].filenames}}"></iframe>
-    </div>
-    
-    <div id="{{sdat[0].id}}+100" class="tabcontent">
-      <div class="opis"> 
-        <h4 name="avtor">Автор : {{sdat[1].name}}</h4>
-        <h4 name="work">Издательство : {{sdat[0].izpats}}</h4>
-        <h4 name="tema">Тема : {{sdat[0].monnames}}</h4>
-        <h4 name="">Соавтор(ры) : {{sdat[0].soavtors}}</h4>
-        <h4>Город : {{sdat[0].citys}}</h4>
         
       </div>
-    </div>
-  
-  
-  <hr>
-  </div>
-  </div>
-  
-  {%endfor%}
-</div>
-</div>
-<div class="kol_public"> 
-  <dl>
-    <dt>Колличество работ</dt>
-      <dd>Дисертаций:{{kol_dess}}</dd>
-      <dd>Монографий:{{kol_mon}}</dd>
-      <dd>Словарей и справочников:{{kol_slov}}</dd>
-      
-  </dl>
-  <div class="rating_prep">
-    <ol>
-      
-      <li>{{items[0].name}}:{{items[0].user_rating}}</li>
-      <li>{{items[1].name}}:{{items[1].user_rating}}</li>
-      <li>{{items[2].name}}:{{items[2].user_rating}}</li>
-      
-    </ol>
-  <a href="/rating">Полный рейтинг преподавателей</a>
-  </div>
-  
-</div>
-</div>
-
-<footer>
-  <div class="clear"></div>
-<div id="footer" name="footer">
-
-  
-  
-
-  <div class="user-profile">
-    <div class="about-profile">
-
-      
-        <table>
-          <tr >
-              <th> RU</th>
-              <th>EN</th>
-              
-          </tr>
+  </header>
+  <div class="container">
+    {% block body %}
+    <div class="main-page">
+      <div class="left-side-nav">
+        <div class="side-nav">
+          <p class="side-title">Фильтрация публикаций</p>
+          <ul class="side-lenta">
+            <li> <a class="tablinkslenta" onclick="openLenta(event, 'lintadess')" >Диссертации</a></li>
+            <li><a class="tablinkslenta" onclick="openLenta(event, 'lentamon')" >Монографии</a></li>
+            <li><a class="tablinkslenta" onclick="openLenta(event, 'lentaslov')" > Cправочные  издания</a></li>
+           
+          </ul>
         
-          <tr class="tabprep">
-              <td  > Абибулаев Л. Б. Разработка веб-приложения «Система публикации научных работ и достижений преподавателей»
-                В курсовом проекте представлена технология разработки веб-приложения для публикации научных работ и достижений преподавателей. Приложение разработано с использованием языка программирования Python на базе технологий Apache (HTTP Server), JavaScript, MySQL. Это приложение может успешно применяться в любых учебных заведениях, целью которых создать библиотеку научных работ преподавателей .
-                Ключевые слова: JavaScript, Apache (HTTP Server), MySQL, веб-приложение, Python. </td>
-              <td>Abibulaev L. B. Development of a web application "System of publication of scientific works and achievements of teachers"
-                The course project presents the technology for developing a web application for the publication of scientific works and achievements of teachers. The application was developed using the Python programming language based on Apache (HTTP Server), JavaScript, MySQL technologies. This application can be successfully used in any educational institutions whose goal is to create a library of scientific works of teachers.
-                Keywords: JavaScript, Apache (HTTP Server), MySQL, web application, Python.</h4>
-        </td>
-             
-              
-          </tr>
-          
-      </table></div>
+          <p class="side-title">Факультеты</p>
+          <ul class="side-menu">
+            <li><a href="/kafedrs?name='Факультет экономики, менеджмента и информационных технологий'">Факультет экономики, менеджмента и информационных технологий</a></li>
+            <li><a href="/kafedrs?name='Факультет психологии и педагогического образования'">Факультет психологии и педагогического образования</a></li>
+            <li><a href="/kafedrs?name='Факультет истории, искусств и крымскотатарского языка и литературы'">Факультет истории, искусств и крымскотатарского языка и литературы</a></li>
+            <li><a href="/kafedrs?name='Филологический факультет'">Филологический факультет</a></li>
+            <li><a href="/kafedrs?name='Инженерно-технологический факультет'">Инженерно-технологический факультет</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+          <div class="main-content">
+           
+            <p class="content-title">Публикации</p>
+            <div class="lentatab" id="lintadess"> 
+              {%for i in data %}
+              <div class="block-tile" >
+                <div class="tile-content">
+                  <p class="tile-title"> <a href="#">{{i[0].tema}}</a></p>
+                  <p class="author">Автор: <a href="#">{{i[1].name}}</a></p>
+                  <div class="annotation">
+                   Аннотация: {{i[0].annotation}}</div>
+                  <p class="faculty">Факультет: <a href="#">{{i[1].fakultet}}</a></p>
+                </div>
+                <div class="bottom-tile">
+                  <p class="view"><a href="#" class="link-view"><img src="../static/img/view.svg" class="icon-view">{{i[0].down}}</a></p>
+                  <p class="read"><a href="/fakultebl?name={{i[0].id}}&user={{i[0].type_dess}}">Читать онлайн</a></p>
+                </div>
+              </div>
+              {%endfor%}
+            </div>
+           
+            <div class="lentatab" id="lentamon">
+              {%for y in monogdat %}
+              <div class="block-tile" >
+                <div class="tile-content">
+                  <p class="tile-title"> <a href="#">{{y[0].tema}}</a></p>
+                  <p class="author">Автор: <a href="#">{{y[1].name}}</a></p>
+                  <div class="annotation">
+                    Аннотация: {{y[0].annotation}}</div>
+                  <p class="faculty">Факультет: <a href="#">{{y[1].fakultet}}</a></p>
+                </div>
+                <div class="bottom-tile">
+                  <p class="view"><a href="#" class="link-view"><img src="../static/img/view.svg" class="icon-view">{{y[0].down}}</a></p>
+                  <p class="read"><a href="/prosmnon?name={{y[0].id}}&user={{y[0].type_work}}">Читать онлайн</a></p>
+                </div>
+              </div>
+            {%endfor%}</div>
+            <div class="lentatab" id="lentaslov">
+              {%for x in slovodat %}
+              <div class="block-tile" >
+                <div class="tile-content">
+                  <p class="tile-title"> <a href="#">{{x[0].tema}}</a></p>
+                  <p class="author">Автор: <a href="#">{{x[1].name}}</a></p>
+                  <div class="annotation">
+                    Аннотация: {{x[0].annotation}} 
+                  </div>
+                  <p class="faculty">Факультет: <a href="#">{{x[1].fakultet}}</a></p>
+                </div>
+                <div class="bottom-tile">
+                  <p class="view"><a href="#" class="link-view"><img src="../static/img/view.svg" class="icon-view">{{x[0].down}}</a></p>
+                  <p class="read"><a href="/prosmslov?name={{x[0].id}}&user={{x[0].type_work}}">Читать онлайн</a></p>
+                </div>
+              </div>
+              {%endfor%}</div> 
+            
+            
+          </div>
+      </div>
+      <div class="rigth-side-nav">
+        <div class="side-nav">
+          <p class="side-title">Рейтинг преподавателей</p>
+          <ul class="side-menu">
+            {% for i in items %}
+            <li class="user-raiting">
+              <img src="../{{i.foto_url}}/{{i.avatar}}" class="img-raiting-user">
+              <div>
+                <p><a href="#">{{i.name}}</a></p>
+                <p class="raiting">Рейтинг: <a href="#">{{i.user_rating}}</a></p>
+              </div>
+            </li>
+            {% endfor %}
+            <div class="link-raiting">
+              <a href="/rating">Все преподаватели</a>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
   </div>
-<a href="#" title="Вернуться к началу" class="topbutton">^Наверх</a>
-</footer>
-      {% endblock %}
-      <script type="text/javascript" src="../static/js/prob.js">
-      </script>
+  <script type="text/javascript" src="../static/js/prob.js"></script>
 </body>
 
 <script>
-var url= document.location.href
-var rabot= document.location.pathname
-var protocol=document.location.protocol
-var host =document.location.host
-var urlrabot = protocol+host+rabot
+
 
   
 function openLenta(evt,lentaName){
@@ -293,7 +172,7 @@ function openLenta(evt,lentaName){
   var i, lenta, tablinkslenta;
 
     // Get all elements with class="lenta" and hide them
-    lenta= document.getElementsByClassName("lenta");
+    lenta= document.getElementsByClassName("lentatab");
     for (i = 0; i < lenta.length; i++) {
       lenta[i].style.display = "none";
     }
@@ -309,77 +188,7 @@ function openLenta(evt,lentaName){
     evt.currentTarget.className += " active";
 };
 
-function openMon(evt, monName) {
-  
-  // Declare all variables
-  var i, tabcontent, tablinks;
 
-// Get all elements with class="tabcontent" and hide them
-tabcontent = document.getElementsByClassName("moncontent");
-for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-}
-
-// Get all elements with class="tablinks" and remove the class "active"
-tablinks = document.getElementsByClassName("tabmonlinks");
-for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-}
-
-// Show the current tab, and add an "active" class to the button that opened the tab
-document.getElementById(monName).style.display = "block";
-evt.currentTarget.className += " active";
-console.log(document.getElementById(monName));
-};
-
-function openCity(evt, cityName) {
-  
-  // Declare all variables
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-    console.log(document.getElementById(cityName));
-};
-
-
-
-
-  function openTable(evt, cityName) {
-  
-  // Declare all variables
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabprepodtabl");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinkTable");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-    console.log(document.getElementById(cityName));
-};
 
 
 </script>

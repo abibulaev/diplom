@@ -10,20 +10,31 @@
 
 {% block body %}
 
-<div class="tabprepod">
-   
-   
-    <h2>Наименование факультета</h2> 
-   
-    <ul class="border">
-   
-<li><a class=" spissok"href="/kafedrs?name='Факультет экономики, менеджмента и информационных технологий'">Факультет экономики, менеджмента и информационных технологий</a></li>
-<li><a class=" spissok"href="/kafedrs?name='Факультет психологии и педагогического образования'">Факультет психологии и педагогического образования</a></li>
-<li><a class=" spissok"href="/kafedrs?name='Факультет истории, искусств и крымскотатарского языка и литературы'">Факультет истории, искусств и крымскотатарского языка и литературы</a></li>
-<li><a class=" spissok"href="/kafedrs?name='Филологический факультет'">Филологический факультет</a></li>
-<li><a class=" spissok"href="/kafedrs?name='Инженерно-технологический факультет'">Инженерно-технологический факультет</a></li>
-</ul>
-   
+
+<div class="prosmot_file">
+    <div class="block-tile" >
+        <div class="tile-content">
+                <p class="tile-title"> <a href="#">{{id_work.tema}}</a></a></p>
+                <p class="author">Автор: <a href="#">{{id_work.dessert.name}}</a></p>
+            <div class="annotation">
+                 Аннотация: {{id_work.annotation}}
+            </div>
+                <p class="faculty">Тип публикации: <a href="#"  >Диссертация </a><a href="#"  id="type_desss">{{id_work.type_dess}}</a></a> </p>
+                <p class="faculty">Факультет: <a href="#">{{id_work.dessert.fakultet}}</a></p>
+                <p class="faculty">Кафедра: <a href="#">{{id_work.dessert.kafedra}}</a></p>
+                <p class="faculty">Специальность: <a href="#">{{id_work.special}}</a></p>
+                <p class="faculty">Научный руководитель: <a href="#">{{id_work.nauch_ruk}}</a></p>
+                <p class="faculty">Дата публикации: <a href="#">{{id_work.data}}</a></p>
+                <p class="faculty">Город: <a href="#">{{id_work.city}}</a></p>
+            </div>
+        <div class="bottom-tile-kaf">
+                <p class="view"><a href="#" class="link-view"><img src="../static/img/view.svg" class="icon-view">{{id_work.down}}</a></p>
+                <p class="read"><a href="/download?url={{id_work.url}}&filename={{id_work.filname}}">Скачать</a></p>
+        </div>
+    </div>
+    <div class="prosmot_file_iframe">
+        <iframe src="{{id_work.url}}/{{id_work.filname}}"> </iframe>
+    </div>
 </div>
 
 

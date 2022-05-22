@@ -9,22 +9,49 @@
 
 
 {% block body %}
+<div class="cont"> 
+        <div class="left-side-nav-kaf">
+        <div class="side-nav-kaf">
+          <p class="side-title">Кафедры</p>
+        <ul class="side-menu-kaf">
+                {% for i in items %}
+                <form method="post" enctype="multipart/form-data">
+                        <li><input class="skrittreg" name="skrittreger" type="text" value="{{i}}">
+                        <button type="submit" class="dobdocbtn" name="trig">{{i}} </button></li>
+                       </form>  
+                 {% endfor %}
+        </ul>
+        </div>
+</div>    
+<div>
+        <table style="margin-top: 20px;" id="list-dis">
+        <tr class="table-title">
+          <td class="table-item-title">ФИО</td>
+          <td class="table-item-title">Должность</td>
+          <td class="table-item-title">Факультет</td>
+          <td class="table-item-title">Кафедра</td>
+          <td class="table-item-title">Почта</td>
+          <td class="table-item-title">Номер телефрона</td>
+         
+        </tr>
+        {% for i in prep %}
+        <tr>
+          <td class="table-item">{{i.name}}</td>
+          <td class="table-item">{{i.status}}</td>
+          <td class="table-item">{{i.fakultet}}</td>
+          <td class="table-item">{{i.kafedra}}</td>
+          <td class="table-item">{{i.email}}</td>
+          <td class="table-item">{{i.telephone}}</td>
+        </tr>
+        {% endfor %}
+      </table>     
+</div> 
+</div>
 
-<div class="tabprepod">
-   
-   
-<h2>Наименование кафедры</h2>
-    
-<ul class="border">
-{% for i in items %}
-        <li><a class=" spissok"href="/about?name={{i}}">{{ i }}</a></li>
-      
+       
+          
+            
         
-        
-    
-{% endfor %}
-    
-</table></div>
 
 
 

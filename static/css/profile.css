@@ -1,97 +1,78 @@
-/*header------------*/
-*{
-    margin: 0 ;
-    padding: 0;
-}
-
-.navigation{
-    display:flex;
-    list-style-type: none;
-padding: 10px 18px;
-
-}
-
-.exit-btn{
-    color: white;
-    font-size: 16px;
-    background: #124c6e;
-   margin-left: auto;
-}
-.menu-item{
-    color: white;
-    font-size: 16px;
-    
-    padding: 10px 18px;
-  text-decoration: none;
-}
-/*body------------*/
-.body{
-    
-    font-size: size 16px;
-    
-background-color: rgb(255, 255, 255);
-}
-
-.user-profile{
-  background-color: #034569; ;
+.profile-content {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
   display: flex;
-  padding: 6% 10%;
+  padding: 20px;
+  height: 100%;
 }
 
-.about-profile{
-padding: 1% 4%;
-
-
-}
-.about-profile label{
-  font-size: small;
-  color:#3f768d ;
-}
-.about-profile h1,h4,h5{
-
-  color:  #559BBA;
-}
-.about-profile h6{
-
-  color:  #464866;
+.info {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #000;
+  padding-right: 40px;
 }
 
-
-
-.tabprepod{
-  font-size: 16px;
-  text-align: center;
-  margin-left: 25%;
-  margin-right: 25%;
-
+.user-photo {
+  width: 200px;
 }
-.tad_name{
+
+.block-info{
+  max-width: 250px;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+.block-info p{
+  margin-top: 10px;
+}
+
+.doc-work {
+  margin-left: 30px;
+}
+
+.table-item {
+  padding-right: 30px;
+}
+
+table {
+  border-spacing: 0;
+}
+
+table th, table td {
+	position: relative;
+  padding: 7px;
+}
+
+.table-item-title {
+	border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.table-item {
+	border-bottom: 1px solid rgb(158, 158, 158);
+}
+
+.bttn-download {
+  background-color: rgb(184, 183, 183);
+  padding: 9px;
+  border-radius: 5px;
+  color: #000;
   text-decoration: none;
 }
-.tabprepod table {
-  
-  font-size: 14px;
-  background: white;
-  max-width: 70%;
-  width: 70%;
-  border-collapse: collapse;
-  text-align: left;
+
+.bttn-download:hover {
+  background-color: rgb(218, 218, 218);
 }
-.tabprepod th {
-  font-weight: normal;
-  color: #039;
-  border-bottom: 2px solid #6678b1;
-  padding: 10px 8px;
+
+.work-bttn {
+  background-color: rgb(123, 112, 230);
+  border-radius: 5px;
+  padding: 10px 20px 10px 20px;
+  color: #000;
+  text-decoration: none;
 }
-.tabprepod td {
-  color: #669;
-  padding: 9px 8px;
-  transition: .3s linear;
-  border-bottom: 1px solid #ccc;
-}
-.tabprepod tr:hover td {
-  color: #6699ff;
-}
-td{
-  cursor: pointer;
+
+.work-bttn:hover {
+  background-color: rgb(161, 153, 229);
 }

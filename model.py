@@ -19,9 +19,9 @@ class Users(db.Model, UserMixin):
     user_rating=db.Column(db.Integer,nullable=False)
 
     passw = db.Column(db.String(250), nullable=False)
-    url=db.relationship("FileUrl")
-    urlm=db.relationship("FileMonUrl")
-    url=db.relationship("SlovarUrl")
+    url=db.relationship("FileUrl",backref='dessert',uselist=False)
+    urlm=db.relationship("FileMonUrl",backref='monograf',uselist=False)
+    urls=db.relationship("SlovarUrl",backref='slovary',uselist=False)
 
     def __init__(self, *args, **kwargs):
         super(Users, self).__init__(*args, **kwargs)
@@ -40,6 +40,8 @@ class FileUrl(db.Model):
     nauch_ruk=db.Column(db.String(300), nullable=False)
     data=db.Column(db.String(300), nullable=False)
     city=db.Column(db.String(300), nullable=False)
+    down=db.Column(db.Integer,nullable=False)
+    annotation=db.Column(db.String(2000), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
    
     
@@ -62,7 +64,9 @@ class FileMonUrl(db.Model):
     kol_stran=db.Column(db.String(300), nullable=False)
     stranic=db.Column(db.String(300), nullable=False)
     isbn=db.Column(db.String(300), nullable=False)
+    down=db.Column(db.Integer,nullable=False)
     data=db.Column(db.String(300), nullable=False)
+    annotation=db.Column(db.String(2000), nullable=False)
     
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
    
@@ -87,7 +91,8 @@ class SlovarUrl(db.Model):
     kol_strans=db.Column(db.String(300), nullable=False)
     isbns=db.Column(db.String(300), nullable=False)
     datas=db.Column(db.String(300), nullable=False)
-    
+    annotation=db.Column(db.String(2000), nullable=False)
+    down=db.Column(db.Integer,nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
    
     
