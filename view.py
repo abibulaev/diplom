@@ -59,7 +59,6 @@ def index():
 
     
     return render_template("base.html",kol_dess=kol_dess,kol_mon=kol_mon,kol_slov=kol_slov, data=data, monogdat=monogdat,slovodat=slovodat,items=list(reversed(itemss)))
-
 @app.route('/rabots', methods=['GET', 'POST'])
 def rabots():
     name=request.args["name"]
@@ -74,9 +73,7 @@ def rabots():
             return send_file(c, as_attachment=True)
         except Exception as e:
             return str(e)
-    return render_template("rabots.html",name=a,nameb=b,namec=c)
-
-
+    return render_template("rabots.html",name=a,nameb=b,namec=c,user=name)
 @app.route('/about',methods=['GET', 'POST'])
 def about():
     name= request.args["name"]
@@ -90,11 +87,8 @@ def rating():
   
     return render_template("rating.html",items=list(reversed(items)))
 @app.route('/fakultebl',methods=['GET', 'POST'])
-
 def fakultebl():
-  
     name=request.args["name"]
-    
     id_work= FileUrl.query.filter_by(id=name).first()
     ocenka=int(id_work.down)+int(1)
     id_work.down=ocenka
@@ -104,7 +98,6 @@ def fakultebl():
         
   
     return render_template("fakultebl.html",id_work=id_work)
-
 @app.route('/prosmnon',methods=['GET', 'POST'])
 def prosmnon():
     
@@ -124,7 +117,6 @@ def prosmnon():
         
     
     return render_template("prosmnon.html",id_work=id_work)
-
 @app.route('/prosmslov',methods=['GET', 'POST'])
 def prosmslov():
     
@@ -142,10 +134,7 @@ def prosmslov():
         
     
     return render_template("prosmslov.html",id_work=id_work)
-
 @app.route('/kafedrs',methods=['GET', 'POST'])
-
-
 def kafedrs():
     prep=[]
     name= request.args["name"]
@@ -177,8 +166,6 @@ def kafedrs():
           prep=Users.query.filter_by(kafedra=trig).all()
     
     return render_template("kafedrs.html",items=items, prep=prep)
-
-
 @app.route('/registr', methods=["POST", "GET"])
 def registr():
     if request.method == 'POST':
@@ -211,9 +198,6 @@ def registr():
             db.session.commit()
             return redirect("/reg")   
     return render_template("registr.html")
-
-
-
 @app.route('/reg', methods=["POST", "GET"])
 def reg():
     if request.method =='POST':
@@ -225,8 +209,6 @@ def reg():
                 login_user(user)
                 return redirect("/")
     return render_template("authorization.html")
-
-
 @app.route('/profile',methods=['GET', 'POST'])
 @login_required
 def profile():
@@ -234,8 +216,6 @@ def profile():
     mon = FileMonUrl.query.filter_by(user_id=current_user.id).all()
     slov = SlovarUrl.query.filter_by(user_id=current_user.id).all()
     return render_template("profile.html", user=current_user, diss = diss, mon=mon, slov=slov)
-
-
 @app.route('/adddoc',methods=['POST',"GET"])
 @login_required
 def adddoc():
@@ -317,14 +297,12 @@ def adddoc():
         db.session.add(user_ball)
         db.session.commit()
     return render_template("adddoc.html",name=current_user.name , spis=spis)
-
 @app.route('/download')
 def download():
     url=request.args["url"]
     filename=request.args["filename"]
     
     return send_file( url+"/"+filename,as_attachment=True)
-
 @app.route("/logout")
 @login_required
 def logout():

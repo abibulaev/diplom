@@ -9,117 +9,132 @@
 
 
 {% block body %}
-<div class="tab_table">
-<button class="tablinkTable" onclick="openTable(event,'tabl_dess')">Диссертации</button>
-<button class="tablinkTable" onclick="openTable(event,'tabl_mon')">Монографии</button>
-<button class="tablinkTable" onclick="openTable(event,'tabl_slov')">Словари,справочные издания</button>
-</div>
-<form  method="post">
-    
-  
-  <div class="tabprepodtabl" id="tabl_dess">
-    <h2>Дисертации</h2>
-    <table>
-    <tr >
-        <th>Тема</th>
-        <th>Тип диссертации</th>
-        <th>Специальность</th>
-        <th>Научный руководитель</th>
-        <th>Дата публикации</th>
-        <th>Город</th>
-        <th>Загрузить</th>
-        
-    </tr>
-    
-    {%for i in name %}
-    <tr class="tabprep">
-        <td  ><p ><a class="tad_name" href="/index?url={{i.url}}&filename={{i.filname}}">{{i.tema}}</a></p>
-          <textarea name="pizrbpot" hidden>{{i.url}}/{{i.filname}}</textarea></td>
-          <td><p>{{i.type_dess}}</p></td>
-          <td>{{i.special}}</td>
-        <td>{{i.nauch_ruk}}</td>
-        <td>{{i.data}}</td>
-        <td>{{i.city}}</td>
-        
-        <td><input type="submit" value="Скачать"></td>
-     
-        
-    </tr>
-    {% endfor %}
-  
-  
-  </table></div>
+<div class="cont">
 
-
-  <div class="tabprepodtabl" id="tabl_mon">
-   <h2>Монографии</h2>
-    <table>
-    <tr >
-        <th>Тема</th>
-        <th>Издательство</th>
-        <th>Количество страниц</th>
-        <th>Cтраницы написанные преподавателем</th>
-        <th>Соавтор</th>
-        <th>ISBN</th>
-        <th>Дата публикации</th>
-        <th>Город</th>
-        <th>Загрузить</th>
-        
-    </tr>
-    
-    {%for i in nameb %}
-    <tr class="tabprep">
-        <td  ><p ><a class="tad_name" href="/index?url={{i.url}}&filename={{i.filename}}">{{i.monname}}</a></p>
-          <textarea name="pizrbpot" hidden>{{i.url}}/{{i.filename}}</textarea></td>
-          <td><p>{{i.izpat}}</p></td>
-          <td>{{i.kol_stran}}</td>
-        <td>{{i.stranic}}</td>
-        <td>{{i.soavtor}}</td>
-        <td>{{i.isbn}}</td>
-        <td>{{i.data}}</td>
-        <td>{{i.city}}</td>
-        
+  <div class="left-side-nav-kaf">
+    <div class="side-nav-kaf">
+      <p >Автор:</p>
+      <p class="side-title">{{user}}</p>
+      <p  style="padding: top 50px;">Фильтрация публикаций</p>
+      <ul class="side-lenta">
+        <li> <a class="tablinkslenta" onclick="openLenta(event,'tabl_dess')" >Диссертации</a></li>
+        <li><a class="tablinkslenta" onclick="openLenta(event,'tabl_mon')" >Монографии</a></li>
+        <li><a class="tablinkslenta" onclick="openLenta(event, 'tabl_slov')" > Cправочные  издания</a></li>
        
-        
-        <td><input type="submit" value="Скачать"></td>
+      </ul>
      
+    </div>
+</div>    
+
+  
+    <form  method="post">
         
-    </tr>
-    {% endfor %}
-  </table></div>
-  <div class="tabprepodtabl" id="tabl_slov">
-    <h2>Словари и справочные издания</h2>
-    <table>
-    <tr >
-        <th>Наименование</th>
-        <th>Издательство</th>
-        <th>Количество страниц</th>
-        <th>Соавтор</th>
-        <th>ISBN</th>
-        <th>Дата публикации</th>
-        <th>Город</th>
-        <th>Загрузить</th>
+      
+      <div class="lentatab" id="tabl_dess">
+        <h2>Дисертации</h2>
+        <table style="margin-top: 20px;">
+        <tr class="table-title">
+            <th  class="table-item-title">Тема</th>
+            <th  class="table-item-title">Тип диссертации</th>
+            <th class="table-item-title">Специальность</th>
+            <th class="table-item-title">Научный руководитель</th>
+            <th class="table-item-title">Дата публикации</th>
+            <th class="table-item-title">Город</th>
+            <th class="table-item-title">Загрузить</th>
+            
+        </tr>
         
-    </tr>
+        {%for i in name %}
+        <tr >
+            <td class="table-item"  ><p ><a class="tad_name" href="/fakultebl?name={{i.id}}&user={{i.type_dess}}">{{i.tema}}</a></p>
+            <textarea name="pizrbpot" hidden>{{i.url}}/{{i.filname}}</textarea></td>
+            <td class="table-item"><p>{{i.type_dess}}</p></td>
+            <td class="table-item">{{i.special}}</td>
+            <td class="table-item">{{i.nauch_ruk}}</td>
+            <td class="table-item">{{i.data}}</td>
+            <td class="table-item">{{i.city}}</td>
+            
+            <td class="table-item"><input type="submit" value="Скачать"></td>
+         
+            
+        </tr>
+        {% endfor %}
+      
+      
+      </table></div>
     
-    {%for i in namec %}
-    <tr class="tabprep">
-        <td  ><p ><a class="tad_name" href="/index?url={{i.url}}&filename={{i.filenames}}">{{i.monnames}}</a></p>
-          <textarea name="pizrbpot" hidden>{{i.url}}/{{i.filenames}}</textarea></td>
-          <td><p>{{i.izpats}}</p></td>
-          <td>{{i.kol_strans}}</td>
-        <td>{{i.soavtors}}</td>
-        <td>{{i.isbns}}</td>
-        <td>{{i.datas}}</td>
-        <td>{{i.citys}}</td>
+    
+      <div class="lentatab" id="tabl_mon" style="display:none;" >
+       <h2>Монографии</h2>
+        <table>
+        <tr class="table-title" >
+            <th  class="table-item-title">Тема</th>
+            <th class="table-item-title">Издательство</th>
+            <th class="table-item-title">Количество страниц</th>
+            <th class="table-item-title">Cтраницы написанные преподавателем</th>
+            <th class="table-item-title">Соавтор</th>
+            <th class="table-item-title">ISBN</th>
+            <th class="table-item-title">Дата публикации</th>
+            <th class="table-item-title">Город</th>
+            <th class="table-item-title">Загрузить</th>
+            
+        </tr>
         
-        <td><input type="submit" value="Скачать"></td>
-     
+        {%for i in nameb %}
+        <tr class="tabprep">
+            <td  class="table-item" ><p ><a class="tad_name" href="/prosmnon?name={{i.id}}&user={{i.type_work}}">{{i.monname}}</a></p>
+              <textarea name="pizrbpot" hidden>{{i.url}}/{{i.filename}}</textarea></td>
+              <td class="table-item"><p>{{i.izpat}}</p></td>
+              <td class="table-item">{{i.kol_stran}}</td>
+            <td class="table-item">{{i.stranic}}</td>
+            <td class="table-item">{{i.soavtor}}</td>
+            <td class="table-item">{{i.isbn}}</td>
+            <td class="table-item">{{i.data}}</td>
+            <td class="table-item">{{i.city}}</td>
+            
+           
+            
+            <td class="table-item"><input type="submit" value="Скачать"></td>
+         
+            
+        </tr>
+        {% endfor %}
+      </table></div>
+      <div class="lentatab" id="tabl_slov" style="display:none;">
+        <h2>Словари и справочные издания</h2>
+        <table>
+        <tr class="table-title">
+            <th class="table-item-title">Наименование</th>
+            <th class="table-item-title">Издательство</th>
+            <th class="table-item-title">Количество страниц</th>
+            <th class="table-item-title">Соавтор</th>
+            <th class="table-item-title">ISBN</th>
+            <th class="table-item-title">Дата публикации</th>
+            <th class="table-item-title">Город</th>
+            <th class="table-item-title">Загрузить</th>
+            
+        </tr>
         
-    </tr>
-    {% endfor %}
-  </table></div>
-</form>
+        {%for i in namec %}
+        <tr class="tabprep">
+            <td  class="table-item" ><p ><a class="tad_name" href="/prosmslov?name={{i.id}}&user={{i.type_work}}">{{i.monnames}}</a></p>
+              <textarea name="pizrbpot" hidden>{{i.url}}/{{i.filenames}}</textarea></td>
+              <td class="table-item"><p>{{i.izpats}}</p></td>
+              <td class="table-item">{{i.kol_strans}}</td>
+            <td class="table-item">{{i.soavtors}}</td>
+            <td class="table-item">{{i.isbns}}</td>
+            <td class="table-item">{{i.datas}}</td>
+            <td class="table-item">{{i.citys}}</td>
+            
+            <td class="table-item"><input type="submit" value="Скачать"></td>
+         
+            
+        </tr>
+        {% endfor %}
+      </table></div>
+    </form>
+</div>
+
 {% endblock %}
 <script>
 

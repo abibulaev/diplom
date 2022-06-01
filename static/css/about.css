@@ -4,7 +4,10 @@
   
 
 }
-
+.contt{
+  display: flex;
+  justify-content: center;
+}
 .prosmot_file{
   display: flex;
   justify-content: center;
@@ -98,6 +101,8 @@ box-shadow: 0 0 5px rgba(0,0,0,0.4);
   table th, table td {
     position: relative;
     padding: 7px;
+    color: black;
+    font-weight:initial
   }
   
   .table-item-title {
